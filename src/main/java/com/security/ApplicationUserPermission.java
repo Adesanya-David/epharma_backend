@@ -3,7 +3,9 @@ package com.security;
 public enum ApplicationUserPermission {
     CREATE_USER("canCreateUser"),
     DELETE_USER("canDeleteUser"),
-    VIEW_ITEMS("canViewItems");
+    VIEW_ITEMS("canViewItems"),
+    CREATE_ITEMS("canCreateItEMS"),
+    DELETE_ITEMS("canDeleteItems");
 
     private final String permission;
 

@@ -8,7 +8,7 @@ import static com.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
     SUPER_ADMIN(Sets.newHashSet()),
-    ADMIN(Sets.newHashSet(CREATE_USER, DELETE_USER,VIEW_ITEMS)),
+    ADMIN(Sets.newHashSet(CREATE_USER, DELETE_USER,VIEW_ITEMS, CREATE_ITEMS, DELETE_ITEMS)),
     CUSTOMER(Sets.newHashSet(VIEW_ITEMS));
 
     private final Set<ApplicationUserPermission> permissions;
