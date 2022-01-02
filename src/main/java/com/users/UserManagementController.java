@@ -1,5 +1,6 @@
 package com.users;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +17,14 @@ public class UserManagementController {
     );
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_SUPER_ADMIN')")
     public static List<user> getUSERS() {
         System.out.println("getUSERS");
         return USERS;
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('')")
     public void addNewUser(@RequestBody User user){
         System.out.println("addNewUser");
         System.out.println(user);

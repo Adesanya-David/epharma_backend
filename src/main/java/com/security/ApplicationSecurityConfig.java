@@ -3,6 +3,7 @@ package com.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,6 +18,7 @@ import static com.security.ApplicationUserRole.*;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
@@ -53,12 +55,14 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .username("Ezeh Camson")
                 .password(passwordEncoder.encode("password123"))
                 .roles(CUSTOMER.name()) // ROLE_CUSTOMER
+                .authorities(CUSTOMER.getGrantedAuthority())
                 .build();
 
         UserDetails adesanyaDavid = User.builder()
                 .username("Adesanya David")
                 .password(passwordEncoder.encode("password321"))
                 .roles(SUPER_ADMIN.name())
+                .authorities(SUPER_ADMIN.getGrantedAuthority())
                 .build();
 
         return new InMemoryUserDetailsManager(
