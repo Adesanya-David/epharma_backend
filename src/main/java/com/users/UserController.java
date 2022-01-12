@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("api/v1/users")
 
 public class UserController {
-    private static final List<user>USERS = Arrays.asList(
+    private static final List<user> USERS = Arrays.asList(
             new user(1, "Adesanya David"),
             new user(2, "Ezeh Camson"),
             new user(3, "Fiewor John")
