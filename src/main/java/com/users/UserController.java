@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/users")
-
 public class UserController {
     private static final List<user> USERS = Arrays.asList(
             new user(1, "Adesanya David"),

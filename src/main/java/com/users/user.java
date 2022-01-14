@@ -2,8 +2,8 @@ package com.users;
 
 public class user {
 
-    private final Integer userId;
-    private final String userName;
+    private  Integer userId;
+    private  String userName;
 
     public user(Integer userId, String userName) {
         this.userId = userId;
@@ -17,6 +17,15 @@ public class user {
     public String getUserName() {
         return userName;
     }
+
+    public void setUserId(){
+        this.userId = userId;
+    }
+
+    public void setUserName(){
+        this.userName = userName;
+    }
+
 
     @Override
     public String toString() {
