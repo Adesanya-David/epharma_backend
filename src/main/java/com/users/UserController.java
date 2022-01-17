@@ -1,9 +1,6 @@
 package com.users;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,4 +22,9 @@ public class UserController {
                 .orElseThrow(() -> new IllegalStateException("User" + userId + "doesn't exist"));
 
     }
+
+//    @PutMapping(path = "/{userId}")
+//    public user updateUser(@PathVariable("userId") Integer userId){
+//        return USERS.set();
+//    }
 }
