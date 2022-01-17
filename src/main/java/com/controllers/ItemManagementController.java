@@ -35,8 +35,8 @@ public class ItemManagementController {
     }
 
     @DeleteMapping("/items/{id}")
-    public Item deleteItems(@RequestBody Item item, @PathVariable String id){
-        itemsService.deleteItems(id, item);
+    public void deleteItems(@PathVariable String id){
+        itemsService.deleteItems(id);
     }
 
 }

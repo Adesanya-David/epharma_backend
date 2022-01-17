@@ -41,7 +41,8 @@ public class ItemsService {
         }
     }
 
-    public void deleteItems(String id, Item item) {
-        
+
+    public void deleteItems(String id) {
+        items.removeIf(t -> t.getItemId().equals(id));
     }
 }
