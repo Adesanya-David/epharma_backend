@@ -1,5 +1,6 @@
-package com.users;
+package com.controllers;
 
+import com.entity.user;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;

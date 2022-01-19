@@ -20,7 +20,7 @@ public class ItemManagementController {
     }
 
     @GetMapping("/Item/id")
-    public Item getItems(@PathVariable String id){
+    public Item getItems(@PathVariable Integer id){
         return itemsService.getItems(id);
     }
 
