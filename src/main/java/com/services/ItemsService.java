@@ -1,6 +1,8 @@
 package com.services;
 
+import com.dao.ItemRepository;
 import com.entity.Item;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,17 +12,23 @@ import java.util.List;
 @Service
 public class ItemsService {
 
+    @Autowired
+    private ItemRepository itemRepository;
+
     private final List<Item> items = new ArrayList<>(Arrays.asList(
-            new Item(1, "Paracetamol"),
-            new Item(2,"Panadol"),
-            new Item(3, "Ciprofloxacin")
+            new Item(1, "Paracetamol", "painkiller"),
+            new Item(2,"Panadol", "painkiller"),
+            new Item(3, "Ciprofloxacin", "broad spectrum antibiotics")
     ));
 
     public List<Item> getAllItems() {
+        List<Item> items = new ArrayList<>();
+        itemRepository.findAll()
+                .forEach(items::add);
         return items;
     }
 
-    public Item getItems(String id){
+    public Item getItems(Integer id){
         return items.stream()
                 .filter(t -> t.getItemId().equals(id))
                 .findFirst()
@@ -28,7 +36,7 @@ public class ItemsService {
     }
 
     public void addItems(Item items) {
-        getAllItems().add(items);
+        itemRepository  .save(items);
     }
 
     public void updateItems(String id, Item item) {
